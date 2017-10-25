@@ -8,6 +8,8 @@ partial class Level : GameObjectList
 
     public Level(int levelIndex)
     {
+        Camera camera = new Camera(0, "camera");
+        Add(camera);
         // load the backgrounds
         GameObjectList backgrounds = new GameObjectList(0, "backgrounds");
         SpriteGameObject backgroundSky = new SpriteGameObject("Backgrounds/spr_sky");

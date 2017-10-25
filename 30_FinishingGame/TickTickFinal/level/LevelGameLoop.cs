@@ -20,10 +20,12 @@ partial class Level : GameObjectList
         TimerGameObject timer = Find("timer") as TimerGameObject;
 
         Player player = Find("player") as Player;
-        position.X += (-player.Position.X + GameEnvironment.Screen.X / 2- position.X)/GameEnvironment.Screen.X * gameTime.ElapsedGameTime.Milliseconds;
+        Camera camera = Find("camera") as Camera;
+        float campos = camera.Position.X;
+        campos -= -player.Position.X + GameEnvironment.Screen.X / 2- position.X)/GameEnvironment.Screen.X * gameTime.ElapsedGameTime.Milliseconds;
 
-        if (position.X > 0)
-            position.X = 0;
+        if (campos > 0)
+            campos = 0;
 
         GameObjectGrid tiles = Find("tiles") as GameObjectGrid;
         if (position.X < tiles.Objects.GetLength(0) * -72 + GameEnvironment.Screen.X) 
