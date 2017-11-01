@@ -11,6 +11,8 @@ partial class Player : AnimatedGameObject
     protected bool exploded;
     protected bool finished;
     protected bool walkingOnIce, walkingOnHot;
+    protected float ShootTimer = 0;
+    protected float fireRate = 1;
 
     public Player(Vector2 start) : base(2, "player")
     {
@@ -50,6 +52,9 @@ partial class Player : AnimatedGameObject
         {
             return;
         }
+        if (inputHelper.IsKeyDown(Keys.Z)) {
+            Shoot();
+        }
         if (inputHelper.IsKeyDown(Keys.Left))
         {
             velocity.X = -walkingSpeed;
@@ -75,6 +80,8 @@ partial class Player : AnimatedGameObject
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+        if (ShootTimer < 1000/fireRate)
+            ShootTimer += gameTime.ElapsedGameTime.Milliseconds;
         if (!finished && isAlive)
         {
             if (isOnTheGround)
@@ -115,6 +122,15 @@ partial class Player : AnimatedGameObject
         }
 
         DoPhysics();
+    }
+
+    void Shoot() {
+        if (ShootTimer >= 1000 / fireRate)
+        {
+            Fireball projectile = new Fireball(position, (Mirror) ? -Vector2.UnitX : Vector2.UnitX);
+            parent.GameWorld.Add(projectile);
+            ShootTimer = 0;
+        }
     }
 
     public void Explode()

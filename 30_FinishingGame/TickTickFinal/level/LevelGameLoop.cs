@@ -22,17 +22,15 @@ partial class Level : GameObjectList
         Player player = Find("player") as Player;
         Camera camera = Find("camera") as Camera;
         float campos = camera.Position.X;
-        campos -= -player.Position.X + GameEnvironment.Screen.X / 2- position.X)/GameEnvironment.Screen.X * gameTime.ElapsedGameTime.Milliseconds;
-
-        if (campos > 0)
-            campos = 0;
+        campos += (player.GlobalPosition.X - GameEnvironment.Screen.X / 2 - campos) / GameEnvironment.Screen.X * gameTime.ElapsedGameTime.Milliseconds;
 
         GameObjectGrid tiles = Find("tiles") as GameObjectGrid;
-        if (position.X < tiles.Objects.GetLength(0) * -72 + GameEnvironment.Screen.X) 
-            position.X = tiles.Objects.GetLength(0) * -72 + GameEnvironment.Screen.X;
+        campos = MathHelper.Clamp(campos, 0, tiles.Objects.GetLength(0) * 72 - GameEnvironment.Screen.X);
 
-        GameObjectList backgrounds = Find("backgrounds") as GameObjectList;
-        backgrounds.Children[0].Position = new Vector2(-position.X, backgrounds.Children[0].Position.Y);
+        camera.Position = new Vector2(campos, camera.Position.Y);
+
+        //GameObjectList backgrounds = Find("backgrounds") as GameObjectList;
+        //backgrounds.Children[0].Position = new Vector2(campos, backgrounds.Children[0].Position.Y);
 
 
         // check if we died

@@ -87,6 +87,8 @@
     <Compile Include="..\..\gamemanagement\TextGameObject.cs">
       <Link>GameManagement\TextGameObject.cs</Link>
     </Compile>
+    <Compile Include="GameManagement\Fireball.cs" />
+    <Compile Include="GameManagement\ParallaxSpriteGameObject.cs" />
     <Compile Include="gameobjects\Camera.cs" />
     <Compile Include="gameobjects\Clouds.cs" />
     <Compile Include="gameobjects\enemies\PatrollingEnemy.cs" />
@@ -347,6 +349,12 @@
       <Link>Content\Tiles\spr_wall_ice.png</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Sounds\fireball.wma">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Sprites\Player\spr_fireball%405x3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\assets\ticktick\fonts\HintFont.xnb">
@@ -396,7 +404,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

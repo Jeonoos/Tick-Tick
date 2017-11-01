@@ -12,21 +12,23 @@ partial class Level : GameObjectList
         Add(camera);
         // load the backgrounds
         GameObjectList backgrounds = new GameObjectList(0, "backgrounds");
-        SpriteGameObject backgroundSky = new SpriteGameObject("Backgrounds/spr_sky");
+        SpriteGameObject backgroundSky = new ParallaxSpriteGameObject("Backgrounds/spr_sky",0);
         backgroundSky.Position = new Vector2(0, GameEnvironment.Screen.Y - backgroundSky.Height);
         backgrounds.Add(backgroundSky);
 
         // add a few random mountains
         for (int i = 0; i < 5; i++)
         {
-            SpriteGameObject mountain = new SpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
+            SpriteGameObject mountain = new ParallaxSpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), GameEnvironment.Random.Next(5)+2);
             mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * GameEnvironment.Screen.X - mountain.Width / 2, 
                 GameEnvironment.Screen.Y - mountain.Height);
             backgrounds.Add(mountain);
         }
-
-        Clouds clouds = new Clouds(2);
-        backgrounds.Add(clouds);
+        for (int i = 0; i < 2; i++)
+        {
+            Clouds clouds = new Clouds(i);
+            backgrounds.Add(clouds);
+        }
         Add(backgrounds);
 
         SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 100);

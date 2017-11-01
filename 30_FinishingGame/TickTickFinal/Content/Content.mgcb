@@ -13,3 +13,9 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../Assets/TickTick/Sounds/fireball.wma
+/importer:WmaImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:../../../Assets/TickTick/Sounds/fireball.wma
+

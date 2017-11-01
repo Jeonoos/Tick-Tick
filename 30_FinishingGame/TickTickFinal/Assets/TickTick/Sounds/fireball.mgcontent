@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>D:/Projects/TickTick/Tick-Tick/30_FinishingGame/TickTickFinal/Content/../../../Assets/TickTick/Sounds/fireball.wma</SourceFile>
+  <SourceTime>2017-11-01T15:27:52.3880152+01:00</SourceTime>
+  <DestFile>D:/Projects/TickTick/Tick-Tick/30_FinishingGame/TickTickFinal/Content/bin/Windows/../../../Assets/TickTick/Sounds/fireball.xnb</DestFile>
+  <DestTime>2017-11-01T15:33:54.1181491+01:00</DestTime>
+  <Importer>WmaImporter</Importer>
+  <ImporterTime>2016-03-30T08:36:08+02:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2016-03-30T08:36:08+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>D:/Projects/TickTick/Tick-Tick/30_FinishingGame/TickTickFinal/Content/bin/Windows/../../../Assets/TickTick/Sounds/fireball.wma</string>
+  </BuildOutput>
+</PipelineBuildEvent>
