@@ -1,4 +1,4 @@
-﻿class Button : SpriteGameObject
+﻿class Button : UIGameObject
 {
     protected bool pressed;
 

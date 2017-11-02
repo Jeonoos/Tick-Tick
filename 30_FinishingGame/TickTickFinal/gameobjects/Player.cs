@@ -12,7 +12,7 @@ partial class Player : AnimatedGameObject
     protected bool finished;
     protected bool walkingOnIce, walkingOnHot;
     protected float ShootTimer = 0;
-    protected float fireRate = 1;
+    protected float fireRate = 2;
 
     public Player(Vector2 start) : base(2, "player")
     {

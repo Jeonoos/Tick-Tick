@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 public class GameObjectList : GameObject
 {
     protected List<GameObject> children;
+    protected List<GameObject> markedForRemove = new List<GameObject>();
 
     public GameObjectList(int layer = 0, string id = "") : base(layer, id)
     {
@@ -34,6 +35,10 @@ public class GameObjectList : GameObject
     {
         children.Remove(obj);
         obj.Parent = null;
+    }
+
+    public void MarkForRemove(GameObject obj) {
+        markedForRemove.Add(obj);
     }
 
     public GameObject Find(string id)
@@ -71,6 +76,10 @@ public class GameObjectList : GameObject
         {
             obj.Update(gameTime);
         }
+        foreach (GameObject obj in markedForRemove)
+            Remove(obj);
+        if (markedForRemove.Count > 0)
+            markedForRemove = new List<GameObject>();
     }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

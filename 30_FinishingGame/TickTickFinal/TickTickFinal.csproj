@@ -89,6 +89,7 @@
     </Compile>
     <Compile Include="GameManagement\Fireball.cs" />
     <Compile Include="GameManagement\ParallaxSpriteGameObject.cs" />
+    <Compile Include="GameManagement\UIGameObject.cs" />
     <Compile Include="gameobjects\Camera.cs" />
     <Compile Include="gameobjects\Clouds.cs" />
     <Compile Include="gameobjects\enemies\PatrollingEnemy.cs" />
