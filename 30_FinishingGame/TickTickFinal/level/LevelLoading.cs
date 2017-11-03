@@ -42,6 +42,13 @@ partial class Level : GameObjectList
                 tiles.Add(t, x, y);
             }
         }
+
+        SpriteGameObject timerBackground = new UIGameObject("Sprites/spr_timer", 100);
+        timerBackground.Position = new Vector2(10, 10);
+        Add(timerBackground);
+        TimerGameObject timer = new TimerGameObject(101, "timer", tiles.Columns * tiles.Rows);
+        timer.Position = new Vector2(25, 30);
+        Add(timer);
     }
 
     private Tile LoadTile(char tileType, int x, int y)

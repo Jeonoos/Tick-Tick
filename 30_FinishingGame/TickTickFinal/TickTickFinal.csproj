@@ -87,7 +87,7 @@
     <Compile Include="..\..\gamemanagement\TextGameObject.cs">
       <Link>GameManagement\TextGameObject.cs</Link>
     </Compile>
-    <Compile Include="GameManagement\Fireball.cs" />
+    <Compile Include="gameobjects\Fireball.cs" />
     <Compile Include="GameManagement\ParallaxSpriteGameObject.cs" />
     <Compile Include="GameManagement\UIGameObject.cs" />
     <Compile Include="gameobjects\Camera.cs" />

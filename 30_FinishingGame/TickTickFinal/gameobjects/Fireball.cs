@@ -25,8 +25,10 @@ class Fireball : AnimatedGameObject
         {
             if (CollidesWith(enemy))
             {
-
-                enemies.MarkForRemove(enemy);
+                if (enemy is Rocket)
+                    enemy.Reset();
+                else
+                    enemy.Visible = false;
                 GameWorld.MarkForRemove(this);
             }
         }
@@ -38,7 +40,7 @@ class Fireball : AnimatedGameObject
         Tile currentTile = tiles.Get(xFloor, yFloor) as Tile;
         Tile lowerTile = tiles.Get(xFloor, yFloor-1) as Tile;
 
-        if (lowerTile != null && lowerTile.TileType != TileType.Background && position.Y%tiles.CellHeight > 20)
+        if (lowerTile != null && lowerTile.TileType != TileType.Background && CollidesWith(lowerTile))
         {
             GameWorld.MarkForRemove(this);
         }else

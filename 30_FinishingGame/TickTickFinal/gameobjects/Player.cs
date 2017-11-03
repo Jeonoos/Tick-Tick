@@ -44,6 +44,7 @@ partial class Player : AnimatedGameObject
     public override void HandleInput(InputHelper inputHelper)
     {
         float walkingSpeed = 400;
+
         if (walkingOnIce)
         {
             walkingSpeed *= 1.5f;
@@ -128,7 +129,7 @@ partial class Player : AnimatedGameObject
         if (ShootTimer >= 1000 / fireRate)
         {
             Fireball projectile = new Fireball(position, (Mirror) ? -Vector2.UnitX : Vector2.UnitX);
-            parent.GameWorld.Add(projectile);
+            GameWorld.Add(projectile);
             ShootTimer = 0;
         }
     }

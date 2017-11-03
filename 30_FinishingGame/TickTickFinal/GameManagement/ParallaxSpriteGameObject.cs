@@ -14,7 +14,7 @@ class ParallaxSpriteGameObject : SpriteGameObject
 
         Camera camera = Root.GameWorld.Find("camera") as Camera;
         if (camera != null)
-            sprite.Draw(spriteBatch, this.GlobalPosition - (camera.Position*layer * 0.1f), origin);
+            sprite.Draw(spriteBatch, this.GlobalPosition - (camera.Position*(layer + parent.Layer) * 0.1f), origin);
         else
             sprite.Draw(spriteBatch, this.GlobalPosition, origin);
     }

@@ -17,27 +17,19 @@ partial class Level : GameObjectList
         backgrounds.Add(backgroundSky);
 
         // add a few random mountains
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 7; i++)
         {
-            SpriteGameObject mountain = new ParallaxSpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), GameEnvironment.Random.Next(5)+2);
-            mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * GameEnvironment.Screen.X - mountain.Width / 2, 
+            SpriteGameObject mountain = new ParallaxSpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), GameEnvironment.Random.Next(5)+1);
+            mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * GameEnvironment.Screen.X * 1.5f - mountain.Width / 2, 
                 GameEnvironment.Screen.Y - mountain.Height);
             backgrounds.Add(mountain);
         }
+        Add(backgrounds);
         for (int i = 0; i < 2; i++)
         {
-            Clouds clouds = new Clouds(i);
+            Clouds clouds = new Clouds(GameEnvironment.Random.Next(5)+1);
             backgrounds.Add(clouds);
         }
-        Add(backgrounds);
-
-        SpriteGameObject timerBackground = new UIGameObject("Sprites/spr_timer", 100);
-        timerBackground.Position = new Vector2(10, 10);
-        Add(timerBackground);
-        TimerGameObject timer = new TimerGameObject(101, "timer");
-        timer.Position = new Vector2(25, 30);
-        Add(timer);
-
         quitButton = new Button("Sprites/spr_button_quit", 100);
         quitButton.Position = new Vector2(GameEnvironment.Screen.X - quitButton.Width - 10, 10);
         Add(quitButton);
@@ -47,6 +39,8 @@ partial class Level : GameObjectList
         Add(new GameObjectList(2, "enemies"));
 
         LoadTiles("Content/Levels/" + levelIndex + ".txt");
+
+
     }
 
     public bool Completed

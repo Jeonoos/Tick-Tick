@@ -4,14 +4,17 @@ using Microsoft.Xna.Framework;
 class TimerGameObject : TextGameObject
 {
     protected TimeSpan timeLeft;
+    protected TimeSpan startTime;
     protected bool running;
     protected double multiplier;
+    
 
-    public TimerGameObject(int layer = 0, string id = "")
+    public TimerGameObject(int layer = 0, string id = "", int levelSize = 0)
         : base("Fonts/Hud", layer, id)
     {
         multiplier = 1;
-        timeLeft = TimeSpan.FromMinutes(0.5);
+        startTime = TimeSpan.FromMinutes((float)levelSize / 600);
+        timeLeft = startTime;
         running = true;
     }
 
@@ -39,7 +42,7 @@ class TimerGameObject : TextGameObject
     public override void Reset()
     {
         base.Reset();
-        timeLeft = TimeSpan.FromMinutes(0.5);
+        timeLeft = startTime;
         running = true;
     }
 

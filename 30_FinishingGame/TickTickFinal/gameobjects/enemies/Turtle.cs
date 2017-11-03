@@ -21,28 +21,31 @@ class Turtle : AnimatedGameObject
 
     public override void Update(GameTime gameTime)
     {
-        base.Update(gameTime);
-        if (sneezeTime > 0)
+        if (visible)
         {
-            PlayAnimation("sneeze");
-            sneezeTime -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (sneezeTime <= 0.0f)
+            base.Update(gameTime);
+            if (sneezeTime > 0)
             {
-                idleTime = 5.0f;
-                sneezeTime = 0.0f;
+                PlayAnimation("sneeze");
+                sneezeTime -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (sneezeTime <= 0.0f)
+                {
+                    idleTime = 5.0f;
+                    sneezeTime = 0.0f;
+                }
             }
-        }
-        else if (idleTime > 0)
-        {
-            PlayAnimation("idle");
-            idleTime -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (idleTime <= 0.0f)
+            else if (idleTime > 0)
             {
-                idleTime = 0.0f;
-                sneezeTime = 5.0f;
+                PlayAnimation("idle");
+                idleTime -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (idleTime <= 0.0f)
+                {
+                    idleTime = 0.0f;
+                    sneezeTime = 5.0f;
+                }
             }
+            CheckPlayerCollision();
         }
-        CheckPlayerCollision();
     }
 
     public void CheckPlayerCollision()
