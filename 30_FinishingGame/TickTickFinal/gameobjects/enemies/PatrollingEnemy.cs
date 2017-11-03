@@ -15,7 +15,7 @@ class PatrollingEnemy : AnimatedGameObject
 
     public override void Update(GameTime gameTime)
     {
-        if (visible)
+        if (visible) //wordt alleen geupdate wanneer visible
         {
             base.Update(gameTime);
             if (waitTime > 0)

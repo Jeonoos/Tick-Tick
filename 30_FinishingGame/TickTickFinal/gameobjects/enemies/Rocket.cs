@@ -50,10 +50,10 @@ class Rocket : AnimatedGameObject
         Player player = GameWorld.Find("player") as Player;
         if (CollidesWith(player))
         {
-            if (player.GlobalPosition.Y + sprite.Height / 2 < GlobalPosition.Y)
+            if (player.GlobalPosition.Y + sprite.Height / 2 < GlobalPosition.Y) // wanneer de player vanaf boven neerkomt
             {
-                player.Jump(800);
-                Reset();
+                player.Jump(800);                                               // double jump
+                Reset();                                                        // raket terugzetten
             }
             else
                 player.Die(false);

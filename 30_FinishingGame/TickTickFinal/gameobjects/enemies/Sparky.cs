@@ -25,7 +25,7 @@ class Sparky : AnimatedGameObject
 
     public override void Update(GameTime gameTime)
     {
-        if (visible)
+        if (visible) //wordt alleen geupdate wanneer visible
         {
             base.Update(gameTime);
             if (idleTime <= 0)

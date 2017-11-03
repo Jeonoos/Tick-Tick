@@ -20,18 +20,6 @@ partial class Level : GameObjectList
         TimerGameObject timer = Find("timer") as TimerGameObject;
 
         Player player = Find("player") as Player;
-        Camera camera = Find("camera") as Camera;
-        Vector2 campos = camera.Position;
-        campos += (player.GlobalPosition + Vector2.UnitY * GameEnvironment.Screen.Y/7 - new Vector2(GameEnvironment.Screen.X, GameEnvironment.Screen.Y)/2 - campos) / GameEnvironment.Screen.X * gameTime.ElapsedGameTime.Milliseconds;
-
-        GameObjectGrid tiles = Find("tiles") as GameObjectGrid;
-        campos.X = MathHelper.Clamp(campos.X, 0, tiles.Objects.GetLength(0) * 72 - GameEnvironment.Screen.X);
-        campos.Y = MathHelper.Clamp(campos.Y, -GameEnvironment.Screen.Y / 4, tiles.Objects.GetLength(1) * 55 - GameEnvironment.Screen.Y);
-
-        camera.Position = campos;
-
-        //GameObjectList backgrounds = Find("backgrounds") as GameObjectList;
-        //backgrounds.Children[0].Position = new Vector2(campos, backgrounds.Children[0].Position.Y);
 
 
         // check if we died

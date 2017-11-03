@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-class ParallaxSpriteGameObject : SpriteGameObject
+class ParallaxSpriteGameObject : SpriteGameObject //class voor achtergrondobjecten die parallax gebruiken
 {
     public ParallaxSpriteGameObject(string assetName, int layer = 0, string id = "", int sheetIndex = 0) : base(assetName, layer, id, sheetIndex) {
     }

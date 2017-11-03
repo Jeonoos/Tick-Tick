@@ -46,7 +46,7 @@ partial class Level : GameObjectList
         SpriteGameObject timerBackground = new UIGameObject("Sprites/spr_timer", 100);
         timerBackground.Position = new Vector2(10, 10);
         Add(timerBackground);
-        TimerGameObject timer = new TimerGameObject(101, "timer", tiles.Columns * tiles.Rows);
+        TimerGameObject timer = new TimerGameObject(101, "timer", tiles.Columns * tiles.Rows); //de timer is gebaseerd op de grootte van het level
         timer.Position = new Vector2(25, 30);
         Add(timer);
     }

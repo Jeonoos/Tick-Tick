@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using System;
 
-class Fireball : AnimatedGameObject
+class Fireball : AnimatedGameObject   
 {
     float speed = 1000f;
     public Fireball(Vector2 start, Vector2 direction) : base(1, "fireball") {
@@ -26,9 +26,9 @@ class Fireball : AnimatedGameObject
             if (CollidesWith(enemy))
             {
                 if (enemy is Rocket)
-                    enemy.Reset();
+                    enemy.Reset();                              // raketten moeten gereset worden ipv helemaal weggehaald
                 else
-                    enemy.Visible = false;
+                    enemy.Visible = false;                    
                 GameWorld.MarkForRemove(this);
             }
         }
@@ -38,18 +38,14 @@ class Fireball : AnimatedGameObject
         int yFloor = (int)((position.Y-sprite.Height/2) / tiles.CellHeight);
 
         Tile currentTile = tiles.Get(xFloor, yFloor) as Tile;
-        Tile lowerTile = tiles.Get(xFloor, yFloor-1) as Tile;
+        Tile lowerTile = tiles.Get(xFloor, yFloor-1) as Tile;   // checkt ook de tile eronder voor extra precisie
 
         if (lowerTile != null && lowerTile.TileType != TileType.Background && CollidesWith(lowerTile))
-        {
             GameWorld.MarkForRemove(this);
-        }else
-        if (currentTile != null && currentTile.TileType != TileType.Background)
-        {
+        else if (currentTile != null && currentTile.TileType != TileType.Background)
             GameWorld.MarkForRemove(this);
-        }
         Camera camera = GameWorld.Find("camera") as Camera;
-        if (position.X - camera.Position.X > GameEnvironment.Screen.X || position.X - camera.Position.X < 0)
+        if (position.X - camera.Position.X > GameEnvironment.Screen.X || position.X - camera.Position.X < 0)    // als de fireball buiten beeld gaat
             GameWorld.MarkForRemove(this);
 
     }

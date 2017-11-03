@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class UIGameObject : SpriteGameObject
+class UIGameObject : SpriteGameObject //class voor de UI objecten die niet meebewegen met het level
 {
     public UIGameObject(string assetName, int layer = 0, string id = "", int sheetIndex = 0) : base(assetName, layer, id, sheetIndex) {
     }
